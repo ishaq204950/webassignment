@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="overlay"></div>
   <header>
     <h1>Contact Us</h1>
     <nav>
@@ -15,6 +14,8 @@
       <a href="contacts.html">Contact</a> |
       <a href="Team.html">Team</a> 
     </nav>
+        <button id="mode-toggle" style="margin: 15px 0 0 10px;">dark-mode</button>
+
   </header>
 
   <main>
@@ -34,7 +35,20 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 The Shoe Store</p>
   </footer>
+
+  <script>
+  const toggleBtn = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = 'Switch to Light Mode';
+    } else {
+      toggleBtn.textContent = 'Switch to Dark Mode';
+    }
+  });
+</script>
 </body>
 </html>

@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="overlay"></div>
   <header>
     <h1>Our Shoes</h1>
     <nav>
@@ -15,6 +14,8 @@
       <a href="contacts.html">Contact</a> |
       <a href="Team.html">Team</a> |
     </nav>
+        <button id="mode-toggle" style="margin: 15px 0 0 10px;">dark-mode</button>
+
   </header>
 
   <main>
@@ -22,7 +23,7 @@
     <div class="product-container">
       <div class="product-card">
         <figure>
-          <img src="sportshoes.jpg" alt="Nike Sport Shoes">
+          <img src="c:/Users/shaqyy/Downloads/actuall nike website/sportshoes.jpg" alt="Nike Sport Shoes">
           <figcaption>Nike Sport Shoes .</figcaption>
         </figure>
         <div class="product-title">Nike Sport Shoes</div>
@@ -30,7 +31,7 @@
       </div>
       <div class="product-card">
         <figure>
-          <img src="running.jpg" alt="Nike Running Shoes">
+          <img src="c:/Users/shaqyy/Downloads/actuall nike website/running.jpg" alt="Nike Running Shoes">
           <figcaption>Nike Running Shoes </figcaption>
         </figure>
         <div class="product-title">Nike Running Shoes</div>
@@ -38,7 +39,7 @@
       </div>
       <div class="product-card">
         <figure>
-          <img src="af1.jpg" alt="Nike Air Force 1">
+          <img src="c:/Users/shaqyy/Downloads/actuall nike website/af1.jpg" alt="Nike Air Force 1">
           <figcaption>Nike Air Force 1  Join the AF1 gang</figcaption>
         </figure>
         <div class="product-title">Nike Air Force 1</div>
@@ -47,5 +48,18 @@
     </div>
     <p>More styles coming soon!</p>
   </main>
+  <script>
+  const toggleBtn = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = 'Switch to Light Mode';
+    } else {
+      toggleBtn.textContent = 'Switch to Dark Mode';
+    }
+  });
+</script>
 </body>
 </html>

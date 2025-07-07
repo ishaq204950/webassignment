@@ -32,6 +32,36 @@
 
       <input type="submit" value="Send">
     </form>
+
+
+<section class="signup-section">
+  <form class="signup-form" id="signupForm" autocomplete="off">
+    <label for="username">Username</label>
+    <input type="text" id="username" required minlength="3" maxlength="20">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+
+    <label for="accountType">Account Type</label>
+    <select id="accountType" required>
+      <option value="">Select account type</option>
+      <option value="customer">Customer</option>
+      <option value="admin">Admin</option>
+      <option value="seller">Seller</option>
+    </select>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" required minlength="8" 
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
+      title="Password must be at least 8 characters, include uppercase, lowercase, number, and special character.">
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" required minlength="8">
+
+    <div id="formError" style="color: red; font-size: 0.95em; margin-bottom: 8px;"></div>
+    <button type="submit">Sign Up</button>
+  </form>
+</section>
   </main>
 
   <footer>
@@ -48,6 +78,54 @@
     } else {
       toggleBtn.textContent = 'Switch to Dark Mode';
     }
+  });
+
+  document.getElementById('signupForm').addEventListener('submit', function(e) {
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('confirmPassword').value;
+    const errorDiv = document.getElementById('formError');
+    const username = document.getElementById('username').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const accountType = document.getElementById('accountType').value;
+
+    const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+    if (!username || username.length < 3) {
+      errorDiv.textContent = "Username must be at least 3 characters.";
+      e.preventDefault();
+      return;
+    }
+    if (!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)) {
+      errorDiv.textContent = "Please enter a valid email address.";
+      e.preventDefault();
+      return;
+    }
+    if (!accountType) {
+      errorDiv.textContent = "Please select an account type.";
+      e.preventDefault();
+      return;
+    }
+    if (!strongPassword.test(password)) {
+      errorDiv.textContent = "Password must be at least 8 characters, include uppercase, lowercase, number, and special character.";
+      e.preventDefault();
+      return;
+    }
+    if (password !== confirm) {
+      errorDiv.textContent = "Passwords do not match.";
+      e.preventDefault();
+      return;
+    }
+    errorDiv.textContent = "";
+
+    let typeText = "";
+    if (accountType === "customer") typeText = "Customer";
+    else if (accountType === "admin") typeText = "Admin";
+    else if (accountType === "seller") typeText = "Seller";
+    else typeText = "User";
+
+    alert(`You have successfully registered as a ${typeText}.`);
+   
+    e.preventDefault();
   });
 </script>
 </body>

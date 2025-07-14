@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Developers of Nike Shoes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Web Developers of Nike shoes</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Products</a> |
+      <a href="contacts.html">Contact</a> |
+      <a href="team.html">Team</a> |
+    </nav>
+        <button id="mode-toggle" style="margin: 15px 0 0 10px;">dark-mode</button>
+
+  </header>
+  <main>
+    <div class="lead-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="c:\Users\shaqyy\Downloads\actuall nike website\runner.avif" alt="Lead Developer">
+            <h2>Ishaq Bashir</h2>
+            <p>Lead Developer</p>
+          </div>
+          <div class="flip-card-back">
+            <h2>Ishaq Bashir</h2>
+            <p>10 years of experience in full-stack development. He is just simply the GOAT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="team">
+      <div class="card">
+        <img src="miyaw.avif" alt="Dev 1">
+        <h2>Jane Doe</h2>
+        <p>Frontend Developer</p>
+      </div>
+      <div class="card">
+        <img src="runner.avif" alt="Dev 2">
+        <h2>Sam Lee</h2>
+        <p>Backend Developer</p>
+      </div>
+      <div class="card">
+        <img src="R.jpg" alt="Dev 3">
+        <h2>RoboTest</h2>
+        <p>A/B testing</p>
+      </div>
+    </div>
+    <div style="margin:2rem 0;">
+      <img src="OIP.jpg" alt="Nike Shoe" style="width:90%;max-width:400px;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.22);border:4px solid #fff;">
+    </div>
+  </main>
+  <script>
+  const toggleBtn = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = 'Switch to Light Mode';
+    } else {
+      toggleBtn.textContent = 'Switch to Dark Mode';
+    }
+  });
+</script>
+</body>
+</html>
